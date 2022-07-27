@@ -4,7 +4,7 @@
 
 **2:** [Http Métodos](#http)
 
-**3:** [Discentes](#alunos)
+**3:** [Alunos](#alunos)
 
 # Editora Api <a name="editora"></a>
 Api com Thymeleaf e Spring Boot.
@@ -25,7 +25,7 @@ A Api utiliza a ferramenta de autenticação Auth0.
 
 ---
 
-#### Discentes <a name="alunos"></a>
+#### Alunos <a name="alunos"></a>
                 
 + Pedro Afonso Vander da Silva
 + Pedro Henrique Cebuliski
