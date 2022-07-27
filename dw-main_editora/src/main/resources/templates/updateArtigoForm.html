@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Artigo</title>
+</head>
+<body>
+	<form method="POST" th:action="@{/api/artigos}" th:object="${ArtigoUpdate}" th:method="put">
+		<h1>Atualizar Artigo</h1>
+		<a th:href="@{/api/artigos}" id="another">Voltar</a><br /> <!--  get /artigos -->
+
+		<h3>Modifique os detalhes do artigo</h3>
+		<label>Id: </label> 
+		<label th:text="${ArtigoUpdate.id}">id</label> 
+		<input type="hidden" th:field="*{id}" th:value="${ArtigoUpdate.id}"/> <!-- preenche o id e nao habilita modifica-lo -->
+		<br/> 
+		<label>Titulo:</label> 
+		<input type="text" th:field="*{titulo}" th:value="${ArtigoUpdate.titulo}"/>
+		<br/> 
+		<label>Resumo: </label>
+		 <input type="text" th:field="*{resumo}" th:value="${ArtigoUpdate.resumo}"/> 
+		<br/>
+		<label for="data">Publicado: </label>
+		 <select class="form-control" th:field="*{publicado}" th:value="${ArtigoUpdate.publicado}">
+    		<option th:value="1" >publicado</option>
+   			 <option th:value="0" >não publicado</option>
+		</select>
+		<br/>
+		<input type="submit" value="Salvar artigo" />
+	</form>
+</body>
+</html>

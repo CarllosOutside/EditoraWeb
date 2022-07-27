@@ -1,0 +1,15 @@
+<!-- src/main/resources/templates/index.html -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+    <body>
+        <div sec:authorize="!isAuthenticated()"> <!-- se nao estiver autenticado -->
+        <p>É preciso realizar Login no sistema para continuar</p>
+           <!-- <a th:href="@{/oauth2/authorization/auth0}">Log In</a>  Get para pagina de autenticacao -->
+        	<a th:href="@{/api/artigos}">Fazer Login</a> <!-- redireciona para lista de artigos automaticamente apos login -->
+        </div>
+<!-- Se ja estiver logado -->
+        <div sec:authorize="isAuthenticated()">
+    <p>Usuario Logado: </p>
+    <a th:href="@{/logout}">Sair</a>
+</div>
+    </body>
+</html>

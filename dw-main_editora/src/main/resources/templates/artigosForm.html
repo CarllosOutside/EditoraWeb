@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<title>ARTIGOS</title>
+</head>
+<body>
+	<h1>ARTIGOS</h1>
+	<form method="POST" th:action="@{/api/artigos}" th:object="${listaDelecao}" th:method="delete"> <!-- listaDelecao a ser preenchida vindo do controller--> 
+	<!--abaixo uma lista de artigos-->
+		<div>
+			<div>
+				<h3>Lista de Artigos</h3>
+				<div th:each="artigo : ${ArticleList}">  <!--listaArtigos vinda do controller-->
+					<input th:field="*{artigos}" type="checkbox"  th:value="${artigo.id}"/>  <!--listaDelecao.artigos[i] = artigo.id-->
+						<a th:text="${artigo.titulo}" th:href="@{|/api/artigos/update/${artigo.id}|}">
+						TITULO</a><br /> <!-- o link manda o id do artigo na query-->
+				</div>
+			</div>
+			<input type="submit" value="Deletar Selecionados" />
+		</div>
+		<div>
+		<a th:href="@{/api/artigos/novo}" id="another">Novo artigo</a>
+		</div>
+	</form>
+	
+	<div sec:authorize="isAuthenticated()">
+    <p>Usuario logado: </p>
+    <a th:href="@{/logout}">Sair</a>
+</div>
+</body>
+</html>

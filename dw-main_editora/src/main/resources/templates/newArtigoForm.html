@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Artigo</title>
+</head>
+<body>
+	<form method="POST" th:action="@{/api/artigos}" th:object="${novoArtigo}">
+		<h1>Novo Artigo</h1>
+		<a th:href="@{/api/artigos}" id="another">Voltar</a><br /> <!--  get /artigos -->
+
+		<h3>Preencha detalhes do artigo</h3>
+		<label>Titulo:</label> 
+		<input type="text" th:field="*{titulo}" />
+		<br/> 
+		<label>Resumo: </label>
+		 <input type="text" th:field="*{resumo}" /> 
+		<br/>
+		<label for="data">Publicado: </label>
+		 <select class="form-control" th:field="*{publicado}">
+    		<option th:value="1" >publicado</option>
+   			 <option th:value="0" >não publicado</option>
+		</select>
+		<br/>
+		<input type="submit" value="Salvar artigo" />
+	</form>
+</body>
+</html>
